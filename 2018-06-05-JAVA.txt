@@ -1,0 +1,342 @@
+3
+package task3_app;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        int[] arr_int;
+        arr_int = new int [20];
+        int max_len=0, sum=0;
+        int i=0;
+        Scanner scanner = null;
+        try {
+            scanner = new Scanner(new File("src/in.txt"));
+            max_len=scanner.nextInt(); // первым числом в файле - кол-во элементов массива
+            for (i=0;i<max_len;i++){
+                arr_int[i]=scanner.nextInt();
+            }
+        } catch (FileNotFoundException e) {
+          e.printStackTrace();
+        }
+        System.out.println(arr_int[max_len-1] + " <--- last item");
+        System.out.println("Input array:");
+        for (i=0; i<max_len; i++){
+            System.out.print(arr_int[i] + " ");
+        }
+        for (i=0; i<max_len; i++){
+            if (arr_int[i]>arr_int[max_len-1]){
+                sum += arr_int[i];
+            }
+        }
+        System.out.print('\n'+"sum = " + sum);
+    }
+}
+
+2
+package task2_app;
+
+public class Main {
+
+    public static void main(String[] args) {
+        int[] arr_int;
+        arr_int = new int [50];
+        for(int i = 0; i < 50; i++ ) {
+            arr_int[i]=2*i+1;
+        }
+        for(int i = 0; i < arr_int.length; i++ ) {
+            System.out.print(arr_int[i] + " ");
+        }
+        System.out.println(" "+ '\n');
+        for(int i = arr_int.length-1 ; i >=0 ; i-- ) {
+            System.out.print(arr_int[i] + " ");
+        }
+    }
+}
+4:
+package task4_app;
+
+public class Main {
+
+    public static void main(String[] args) {
+	int[] arr_int;
+	int i;
+	for(i=1; i<=99; i=i+3){
+	    arr_int
+
+    }
+
+    }
+}
+
+// типа динамический массив
+
+import java.util.ArrayList;
+ 
+public class TestStudy{
+    public static void main(String[] args) {
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        //Заполняем 
+        for(int i = 0; i < 10; i++){
+            list.add(i);
+        }
+        //Стучимся к каждому элементу
+        for(int i = 0; i < 10; i++){
+            System.out.println(list.get(i));
+        }
+    }
+}
+
+// 4 задача
+
+package task4;
+
+public class Main {
+
+    public static void main(String[] args) {
+        int[] arrayInt;
+        int numberValue=1;
+        long multiplicationValue=1;
+        arrayInt = new int [34];
+        for(int i = 0; i < 34; i++ ) {
+            if (i!=0) {
+                 arrayInt[i] = 3 * i ;
+            }
+            else {
+                arrayInt[i] = 3 * i + 1;
+             }
+        }
+        // выводим на экран ВЕСЬ массив
+        System.out.print("Массив всех чисел: ");
+        for(int i = 0; i < arrayInt.length; i++ ) {
+            System.out.print(arrayInt[i] + " ");
+        }
+        System.out.print('\n'+"Массив чисел кратных 5: ");
+        // выводим на экран массив значений кратных 5
+        for(int i = 0; i < arrayInt.length; i++ ) {
+            if (arrayInt[i]%5 == 0) {
+                System.out.print(arrayInt[i] + " ");
+                multiplicationValue *= arrayInt[i];
+                numberValue +=1;
+            }
+        }
+        System.out.print('\n'+"кол-во чисел кратных 5: "+ numberValue);
+        System.out.print('\n'+"произведение чисел кратных 5: "+ multiplicationValue);
+
+    }
+}
+
+
+--------------
+
+Сортировка массива строк в Java:
+String[] names = new String[] {"Roman","Anna", "Petr", "Maria"}; 
+
+Arrays.sort(names);
+for(int i = 0; i <  names.length; i++) {
+	System.out.print(names[i] + "  ");
+}
+В этом примере массив имен сортируется в порядке от А до Я. 
+Для того чтобы отсортировать массив в обратном порядке, 
+необходимо в методе sort() указать Collections.reverseOrder().
+
+Arrays.sort(names, Collections.reverseOrder());
+
+--------------------
+
+Примечание: в начале файла предварительно нужно подключить библиотеку  java.util.
+
+import java.util.*;
+Сортировка массива целых чисел по возрастанию:
+//Создаем массив случайных чисел
+int arr[] = new int[10];
+for(int i = 0; i <  arr.length; i++) {
+	arr[i] =  (int)(Math.random() * 100);
+	System.out.print(arr[i] + "  ");
+}
+System.out.print("\nSorted: \n");
+//Сортируем массив
+Arrays.sort(arr);
+//Выводим отсортированный массив на консоль.
+for(int i = 0; i <  arr.length; i++) {
+	System.out.print(arr[i] + "  ");
+}
+Сортировка массива целых чисел по убыванию:
+//Создаем массив случайных чисел
+Integer arr[] = new Integer[10];
+for(int i = 0; i <  arr.length; i++) {
+	arr[i] =  (int)(Math.random() * 100);
+	System.out.print(arr[i] + "  ");
+}
+System.out.print("\nSorted: \n");
+//Сортируем массив
+Arrays.sort(arr, Collections.reverseOrder());
+//Выводим отсортированный массив на консоль.
+for(int i = 0; i <  arr.length; i++) {
+	System.out.print(arr[i] + "  ");
+}
+Обратите внимание, что при сортировке массива в обратном порядке (по убыванию) нужно использовать тип Integer[] вместо примитивного типа int[].
+
+
+----------------------------------------------
+Сортировка пузырьком (Bubble sort) в Java.
+Алгоритм проходит массив от начала и до конца, сравнивая попарно соседние элементы, Если элементы стоят в неправильном порядке, то они меняются местами, таким образом, после первого прохода на конце массива оказывается максимальный элемент (для сортировки по возрастанию).  Затем проход массива повторяется, и на предпоследнем месте оказывается другой наибольший после максимального элемент и т.д. В итоге, наименьший элемент постепенно перемещается  к началу массива («всплывает» до нужной позиции как пузырёк в воде).
+
+Реализация алгоритма Сортировка пузырьком на Java (по возрастанию):
+
+public static void bubbleSort(int[] arr){
+    /*Внешний цикл каждый раз сокращает фрагмент массива, 
+      так как внутренний цикл каждый раз ставит в конец
+      фрагмента максимальный элемент*/   
+    for(int i = arr.length-1 ; i > 0 ; i--){
+        for(int j = 0 ; j < i ; j++){
+            /*Сравниваем элементы попарно, 
+              если они имеют неправильный порядок, 
+              то меняем местами
+            if( arr[j] > arr[j+1] ){
+                int tmp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = tmp;
+            }
+        }
+    }
+}
+
+
+Рассмотрим примеры того, как можно воспользоваться выше приведенными алгоритмами.
+Для начала создадим массив. Это можно сделать так:
+
+int arr[] ={62, 84, 32, 5, 0, 14, 52, 82, 58, 71};
+Или мы можем создать массив случайных чисел
+
+int arr[] = new int[10];
+for(int i = 0; i < arr.length; i++) {
+    //элементу массива присваивается случайное число от 0 до 99
+    arr[i] = (int)(Math.random() * 100);
+    System.out.print(arr[i] + "  ");
+}
+Затем воспользуемся вышеприведенными алгоритмами сортировки
+
+System.out.print("\n");
+bubbleSort(arr);
+for(int i = 0; i <  arr.length; i++) {
+	System.out.print(arr[i] + "  ");
+}	
+или
+
+System.out.print("\n");
+selectionSort(arr);
+for(int i = 0; i <  arr.length; i++) {
+	System.out.print(arr[i] + "  ");
+}	
+ 2018-06-08 Lesson
+
+Отредактировать созданную программу и дополнить её новым
+функционалом, заключающимся в размещении в конце массива всех
+элементов больше 10
+5. Запостить на GitHub новую версию проекта
+6. Доплнить созданную программу в п.1-2, 4 упорядочиванием по возрастанию
+всех элементов, размещённых вначале массива и меньших 0 по возрастанию,
+а элементов, размещённых в конце массива и больших 10 – по убыванию.
+Элементы со значениями от 0 до 10 оставить без упорядочения
+7. Запостить на GitHub новую версию проек
+
+
+===================
+package task1_app;
+
+/*
+1. Создайте текстовый файл, содержащий значения целочисленного массива.
+Используя класс Scanner, загрузить значения элементов массива в память.
+2. Разместить в начале массива все элементы меньше 0
+*/
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Arrays;
+import java.util.Scanner;
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+        int[] arrayInt;
+        arrayInt = new int [20];
+        int maxLenght=0, sum=0;
+        int i=0,j=0,tempValue=0;
+        Scanner scanner = null;
+        try {
+            scanner = new Scanner(new File("src/in.txt"));
+            maxLenght=scanner.nextInt(); // первым числом в файле - кол-во элементов массива
+            for (i=0;i<maxLenght;i++){
+                arrayInt[i]=scanner.nextInt();
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Output array:");
+        for (i=0; i<maxLenght; i++){
+            System.out.print(arrayInt[i] + " ");
+        }
+        // отсортируем массив по взрастанию
+        // Arrays.sort(arrayInt);
+
+        for(i = maxLenght-1 ; i > 0 ; i--){
+            for(j = 0 ; j < i ; j++){
+            /* Сравниваем элементы попарно, если они имеют
+                неправильный порядок, то меняем местами */
+                if( arrayInt[j+1] < 0 ){
+                    tempValue = arrayInt[j];
+                    arrayInt[j] = arrayInt[j+1];
+                    arrayInt[j+1] = tempValue;
+
+                }
+            }
+        }
+        System.out.println("Output sorted array:");
+        for (i=0; i<maxLenght; i++){
+            System.out.print(arrayInt[i] + " ");
+        }
+        /*
+         Отредактировать созданную программу и дополнить её новым
+         функционалом, заключающимся в размещении в конце массива всех
+         элементов больше 10
+        */
+        for(i = 0 ; i < maxLenght ; i++){
+            for(j = i ; j < maxLenght-1 ; j++){
+            /* Сравниваем элементы попарно, если они имеют
+                неправильный порядок, то меняем местами */
+                if( arrayInt[j] > 10 ){
+                    tempValue = arrayInt[j];
+                    arrayInt[j] = arrayInt[j+1];
+                    arrayInt[j+1] = tempValue;
+                }
+            }
+        }
+        System.out.println("Output sorted array:");
+        for (i=0; i<maxLenght; i++){
+            System.out.print(arrayInt[i] + " ");
+        }
+
+/*
+ Доплнить созданную программу в п.1-2, 4 упорядочиванием по возрастанию
+всех элементов, размещённых вначале массива и меньших 0 по возрастанию,
+а элементов, размещённых в конце массива и больших 10 – по убыванию.
+Элементы со значениями от 0 до 10 оставить без упорядочения
+ */
+
+
+        System.out.println("Output sorted array:");
+        for (i=0; i<maxLenght; i++){
+            System.out.print(arrayInt[i] + " ");
+        }
+
+    }
+}
+
+
+15 6 9 12 -6 8 4 -3 16 -74 0 25 -3 99 -42 13
